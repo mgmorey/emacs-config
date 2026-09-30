@@ -17,7 +17,6 @@
        "2e7dc2838b7941ab9cabaa3b6793286e5134f583c04bde2fba2f4e20f2617cf7"
        default))
  '(enable-recursive-minibuffers t)
- '(global-display-line-numbers-mode t)
  '(package-selected-packages
     '(ace-window cmake-mode dockerfile-mode eglot eterm-256color gnuplot
        magit markdown-mode modus-themes swiper try vertico yaml-mode))
@@ -28,5 +27,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight regular :height 120 :width normal))))
- '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+ '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight regular :height 120 :width normal)))))
