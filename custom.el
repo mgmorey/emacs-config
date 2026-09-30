@@ -19,10 +19,8 @@
  '(enable-recursive-minibuffers t)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-    '(ace-window cmake-mode dockerfile-mode ecb editorconfig
-       editorconfig-custom-majormode eglot eterm-256color gnuplot
-       magit markdown-mode markdown-preview-mode modus-themes swiper
-       try vertico yaml-mode))
+    '(ace-window cmake-mode dockerfile-mode eglot eterm-256color gnuplot
+       magit markdown-mode modus-themes swiper try vertico yaml-mode))
  '(safe-local-variable-values '((make-backup-files) (cmake-tab-width . 4)))
  '(shr-use-fonts t))
 (custom-set-faces
