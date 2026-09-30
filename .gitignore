@@ -1,0 +1,7 @@
+# Ignore everything by default; allowlist tracked config files
+/*
+!/.gitignore
+!/init.el
+!/early-init.el
+!/custom.el
+!/github-markdown.css
