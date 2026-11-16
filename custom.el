@@ -21,6 +21,7 @@
     '(ace-window cmake-mode dockerfile-mode eglot eterm-256color gnuplot
        magit markdown-mode modus-themes swiper try vertico yaml-mode))
  '(safe-local-variable-values '((make-backup-files) (cmake-tab-width . 4)))
+ '(sh-indent-after-continuation t)
  '(shr-use-fonts t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
