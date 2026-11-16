@@ -29,6 +29,11 @@ run `M-x package-install-selected-packages`.
 Packages are installed from GNU ELPA and NonGNU ELPA, which Emacs enables by
 default, and from MELPA Stable. The development MELPA archive is not used.
 
+Host-specific settings belong in `local.el`, which `init.el` loads, if present,
+before `use-package` installs anything, and which the `.gitignore` allowlist
+keeps out of the repository. On a network that blocks the GNU archives, for
+example, `local.el` can remove `gnu` and `nongnu` from `package-archives`.
+
 ## Configured Packages
 
 Built-in packages:

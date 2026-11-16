@@ -8,6 +8,9 @@
 (add-to-list 'package-archives
   '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
+;; Host-specific settings, kept out of the repository by .gitignore
+(load (locate-user-emacs-file "local.el") 'noerror 'nomessage)
+
 (setq use-package-always-ensure t)
 
 ;;; Built-in packages
