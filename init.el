@@ -36,6 +36,10 @@
   :ensure nil
   :init (savehist-mode))
 
+(use-package tramp
+  :ensure nil
+  :custom (enable-remote-dir-locals t))
+
 (use-package which-key
   :ensure nil
   :config (which-key-mode))
