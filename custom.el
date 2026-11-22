@@ -22,7 +22,11 @@
     docker docker-cli dockerfile-mode editorconfig
     editorconfig-custom-majormode eglot eterm-256color gnuplot json-mode
     magit markdown-mode modus-themes swiper try vertico yaml-mode))
- '(safe-local-variable-values '((make-backup-files) (cmake-tab-width . 4)))
+ '(safe-local-variable-values
+   '((eglot-server-programs
+      ((c++-mode c++-ts-mode) "clangd"
+       "--compile-commands-dir=build-cmake/ubuntu-x64-debug"))
+     (make-backup-files) (cmake-tab-width . 4)))
  '(sh-indent-after-continuation t)
  '(shr-use-fonts t))
 (custom-set-faces
