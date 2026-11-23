@@ -40,6 +40,35 @@
   :ensure nil
   :custom (enable-remote-dir-locals t))
 
+;; Install grammars with M-x treesit-install-language-grammar
+(use-package treesit
+  :ensure nil
+  :custom
+  (treesit-language-source-alist
+    '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+       (c "https://github.com/tree-sitter/tree-sitter-c")
+       (cmake "https://github.com/uyha/tree-sitter-cmake")
+       (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+       (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+       (json "https://github.com/tree-sitter/tree-sitter-json")
+       (markdown "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
+         nil "tree-sitter-markdown/src")
+       (markdown-inline
+         "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
+         nil "tree-sitter-markdown-inline/src")
+       (python "https://github.com/tree-sitter/tree-sitter-python")
+       (toml "https://github.com/tree-sitter-grammars/tree-sitter-toml")
+       (yaml "https://github.com/tree-sitter-grammars/tree-sitter-yaml")))
+  :config
+  ;; Remap only when the grammar is installed
+  (dolist (entry '((bash sh-mode . bash-ts-mode)
+                    (c c-mode . c-ts-mode)
+                    (cmake cmake-mode . cmake-ts-mode)
+                    (cpp c++-mode . c++-ts-mode)
+                    (python python-mode . python-ts-mode)))
+    (when (treesit-ready-p (car entry) t)
+      (add-to-list 'major-mode-remap-alist (cdr entry)))))
+
 (use-package which-key
   :ensure nil
   :config (which-key-mode))
