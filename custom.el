@@ -33,7 +33,9 @@
              (t (error "No CMake preset for %s" system-type))))
           (build-dir (concat "build-cmake/" preset)))
         (setq-local compile-command
-          (format "cmake --build --preset %s --parallel" preset))
+          (format
+            "cmake --preset %s && cmake --build --preset %s --parallel"
+            preset preset))
         (setq-local dape-command
           `(gdb defer-launch-attach t :program
              ,(concat build-dir "/unix-server")))
@@ -41,6 +43,23 @@
           `
           (((c++-mode c++-ts-mode) "clangd"
              ,(concat "--compile-commands-dir=" build-dir)))))
+       (eval let*
+         ((preset
+            (cond
+              ((file-remote-p default-directory) "ubuntu-x64-debug")
+              ((eq system-type 'darwin) "macos-arm64-debug")
+              ((eq system-type 'gnu/linux) "ubuntu-x64-debug")
+              (t (error "No CMake preset for %s" system-type))))
+           (build-dir (concat "build-cmake/" preset)))
+         (setq-local compile-command
+           (format "cmake --build --preset %s --parallel" preset))
+         (setq-local dape-command
+           `(gdb defer-launch-attach t :program
+              ,(concat build-dir "/unix-server")))
+         (setq-local eglot-server-programs
+           `
+           (((c++-mode c++-ts-mode) "clangd"
+              ,(concat "--compile-commands-dir=" build-dir)))))
        (dape-command gdb defer-launch-attach t :program
          "build-cmake/ubuntu-x64-debug/unix-server")
        (cmake-tab-width . 8)
