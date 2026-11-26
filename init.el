@@ -80,6 +80,8 @@
   :custom-face
   (aw-leading-char-face ((t (:height 3.0)))))
 
+(use-package dape)
+
 (use-package eterm-256color
   :hook (term-mode . eterm-256color-mode))
 
